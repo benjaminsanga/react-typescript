@@ -9,11 +9,14 @@ const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  // const [todosState, dispatchTodos] = useReducer(TodoReducer, [])
+
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (todo) {
       setTodos([...todos, { id: Date.now(), todo, isDone: false}])
+      // dispatchTodos({type: 'add', payload: todo});
       setTodo("");
     }
   };
